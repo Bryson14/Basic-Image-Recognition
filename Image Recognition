@@ -20,22 +20,6 @@ def smallestDimensions(imageList):
             smallestColumns = columns
     return smallestRows, smallestColumns
 
-# def makePictureMatrixBGR(imageList, maxRows, maxColumns): #makes the numpy array with pixel data
-#     pictureDataMatrix = np.arange(maxRows * maxColumns * len(imageList)*3).reshape(len(imageList),3, maxRows * maxColumns)
-#     for image in imageList: #takes image one at a time
-#         img = cv2.imread(image)  # reads in images one by one.
-#         rows, columns, channels = img.shape
-#         startPosX = (columns - maxColumns) // 2  # centers the area of interest in the middle despite differences in pixel count
-#         startPosY = (rows - maxRows) // 2
-#         counter = 0
-#         for x in range(startPosX):
-#             for y in range(startPosY):
-#                 blue, green, red = (img[x + startPosX, y + startPosY])  # makes blue, green, red arrays for each picture
-#
-#                 counter +=1
-#         imageIndex +=1
-#     return pictureDataMatrix
-
 def makePictureMatrixGray(imageList, maxRows, maxColumns):
     pictureDataMatrix = np.arange(maxRows * maxColumns * len(imageList)). reshape(len(imageList), maxRows * maxColumns) #reshapes matrix into a 4 x n-dimensions
     i = 0
@@ -94,12 +78,6 @@ def main():
                  "C:\\Users\\Bryson M\\Documents\\CS 1400\\MORE PYTHON\\Image Recognition\\Pictures\\50x50_painting3.png",
                  "C:\\Users\\Bryson M\\Documents\\CS 1400\\MORE PYTHON\\Image Recognition\\Pictures\\50x50_painting4.png"]
     observedImage = ["C:\\Users\\Bryson M\\Documents\\CS 1400\\MORE PYTHON\\Image Recognition\\Pictures\\50x50_Test_Painting.png"]
-
-    # imageList = ["C:\\Users\\Bryson M\\Documents\\CS 1400\\MORE PYTHON\\Image Recognition\\camera-test\\venv\\Images\\SpongbobJump.png",
-    #              "C:\\Users\\Bryson M\\Documents\\CS 1400\\MORE PYTHON\\Image Recognition\\camera-test\\venv\\Images\\SpongebobHug.png",
-    #              "C:\\Users\\Bryson M\\Documents\\CS 1400\\MORE PYTHON\\Image Recognition\\camera-test\\venv\\Images\\SpongebobJogging.png",
-    #              "C:\\Users\\Bryson M\\Documents\\CS 1400\\MORE PYTHON\\Image Recognition\\camera-test\\venv\\Images\\SpongbobShowing.png"]
-    # observedImage = ["C:\\Users\\Bryson M\\Documents\\CS 1400\\MORE PYTHON\\Image Recognition\\camera-test\\venv\\Images\\mario.png"]
 
 #find dimensions
     smallestRows, smallestColumns = smallestDimensions(imageList + observedImage) #finds the smallest dimentions out of all the data for clean linalg operations
